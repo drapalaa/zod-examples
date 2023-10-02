@@ -1,2 +1,2 @@
 export { usersApi } from "./api";
-export { usersApiwithZod } from "./apiWithZod";
+export { usersApiWithZod } from "./apiWithZod";

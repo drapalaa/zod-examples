@@ -4,8 +4,7 @@ type Theme = (typeof themes)[number];
 
 type User = {
   username: string;
-  createdAt: string;
-  roles: string[];
+  role: string;
   theme: Theme;
 };
 
@@ -14,9 +13,7 @@ class UsersApi {
     const response = await fetch("/user");
 
     if (response.ok) {
-      const user = await response.json();
-
-      return user;
+      return await response.json();
     }
 
     throw new Error("Cannot get get user data");

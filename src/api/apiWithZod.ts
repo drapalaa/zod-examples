@@ -2,30 +2,13 @@ import { z } from "zod";
 
 const themes = ["light", "dark"] as const;
 
-// const userSchema = z.object({
-//   username: z.string(),
-//   createdAt: z.string(),
-//   roles: z.string().array(),
-//   theme: z.enum(themes).default("light"),
-// });
+const userSchema = z.object({
+  username: z.string(),
+  role: z.string(),
+  theme: z.enum(themes).default('light'),
+});
 
-const userSchema = z
-  .object({
-    username: z.string(),
-    roles: z.string().array(),
-    theme: z.enum(themes).default("light"),
-  })
-  .transform(({ roles, ...rest }) => ({
-    ...rest,
-    roles,
-    isAdmin: roles.includes("ADMIN"),
-  }));
-
-// type User = z.infer<typeof userSchema>;
-
-type UserResponse = z.input<typeof userSchema>;
-
-type User = z.output<typeof userSchema>;
+type User = z.infer<typeof userSchema>;
 
 class UsersApi {
   async getUser(): Promise<User> {
@@ -41,4 +24,4 @@ class UsersApi {
   }
 }
 
-export const usersApiwithZod = new UsersApi();
+export const usersApiWithZod = new UsersApi();
