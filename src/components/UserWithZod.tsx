@@ -11,8 +11,8 @@ export const UserWithZod = () => {
       {user && (
         <>
           <p>username: {user.username}</p>
-          <p>isAdmin: {user.role === 'ADMIN' ? 'YES' : 'NO'}</p>
-          <p>theme: {user.theme}</p>
+          <p>isAdmin: {user.role === 'ADMIN' ? 'Yes' : 'No'}</p>
+          <p>theme: {user.theme.type}</p>
         </>
       )}
     </div>

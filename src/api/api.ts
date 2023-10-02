@@ -5,7 +5,9 @@ type Theme = (typeof themes)[number];
 type User = {
   username: string;
   role: string;
-  theme: Theme;
+  theme: {
+    type: Theme
+  };
 };
 
 class UsersApi {
@@ -16,7 +18,7 @@ class UsersApi {
       return await response.json();
     }
 
-    throw new Error("Cannot get get user data");
+    throw new Error("Getting user details failed.");
   }
 }
 

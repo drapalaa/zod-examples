@@ -8,7 +8,7 @@ export const handlers = [
         username: "test.user",
         createdAt: "2007-03-01T13:00:00Z",
         role: "ADMIN",
-        theme: 'light',
+        theme: { type: 'light' },
       })
     );
   }),

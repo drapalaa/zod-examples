@@ -5,7 +5,9 @@ const themes = ["light", "dark"] as const;
 const userSchema = z.object({
   username: z.string(),
   role: z.string(),
-  theme: z.enum(themes).default('light'),
+  theme: z.object({
+    type: z.enum(themes)
+  })
 });
 
 type User = z.infer<typeof userSchema>;
@@ -20,7 +22,7 @@ class UsersApi {
       return userSchema.parse(user);
     }
 
-    throw new Error("Cannot get get user data");
+    throw new Error("Getting user details failed.");
   }
 }
 
